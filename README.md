@@ -39,13 +39,13 @@ The binary will be created in the `output/` folder.
 Start server:
 
 ```bash
-./output/msg run <ip_address>
+./build/msg run <ip_address>
 ```
 
 Join chat as client:
 
 ```bash
-./output/msg join <ip_address>
+./build/msg join <ip_address>
 ```
 
 When joining, you can set a username or use the default `anonymous`. Type messages at the prompt and press Enter to send.
