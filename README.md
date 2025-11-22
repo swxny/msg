@@ -30,7 +30,7 @@ A simple terminal-based chat client/server in C++ using HTTP, SQLite3, and ncurs
 make
 ```
 
-The binary will be created in the `output/` folder.
+The binary will be created in the `build/` folder.
 
 ---
 
