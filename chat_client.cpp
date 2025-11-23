@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "httplib.h"
+#include "lib/httplib.h"
 #include <ncurses.h>
 
 void join_chat(const std::string& ip) {
