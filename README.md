@@ -47,13 +47,13 @@ wget https://github.com/swxny/msg/installer/install.sh | sh
 Start server:
 
 ```bash
-./build/msg run <ip_address>
+msg run <ip_address>
 ```
 
 Join chat as client:
 
 ```bash
-./build/msg join <ip_address>
+msg join <ip_address>
 ```
 
 When joining, you can set a username or use the default `anonymous`. Type messages at the prompt and press Enter to send.
