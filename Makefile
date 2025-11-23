@@ -1,24 +1,27 @@
-CXX=g++
-CXXFLAGS=-std=c++17 -Wall -pthread `pkg-config --cflags sqlite3 ncurses`
-LDFLAGS=`pkg-config --libs sqlite3 ncurses`
+CXX = g++
+CXXFLAGS = -std=c++17 -Wall -pthread `pkg-config --cflags sqlite3 ncurses`
+LDFLAGS = `pkg-config --libs sqlite3 ncurses`
 
-SRCS=main.cpp chat_server.cpp chat_client.cpp database.cpp
-OBJS=$(patsubst %.cpp,build/%.o,$(SRCS))
+SRCS = main.cpp chat_server.cpp chat_client.cpp database.cpp
+OBJS = $(patsubst %.cpp, build/%.o, $(SRCS))
+TARGET = msg
 
-TARGET=build/msg
+# Create build folder if it doesn't exist
+BUILD_DIR = build
+$(shell mkdir -p $(BUILD_DIR))
 
-# Ensure build directory exists
-$(shell mkdir -p build)
+all: $(TARGET) clean_o
 
-all: $(TARGET)
-
-# Build target
 $(TARGET): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
+	$(CXX) $(OBJS) -o $(TARGET) $(LDFLAGS)
 
-# Build object files
+# Compile source files into build folder
 build/%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-clean:
-	rm -rf build
+# Remove object files after building
+clean_o:
+	rm -f build/*.o
+
+clean: clean_o
+	rm -f $(TARGET)
