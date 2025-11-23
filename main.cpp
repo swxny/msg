@@ -5,6 +5,12 @@
 
 int main(int argc, char* argv[]) {
     if (argc < 3) {
+        std::cout << "     _ __ ___  ___  __ _ \n";
+        std::cout << "    | '_ ` _ \\/ __|/ _` |\n";
+        std::cout << "    | | | | | \\__ \\ (_| |\n";
+        std::cout << "    |_| |_| |_|___/\\__, |\n";
+        std::cout << "                   |___/ \n";
+        std::cout << "\n";    
         std::cout << "Usage:\n  msg run <ip_addr>\n  msg join <ip_addr>\n";
         return 1;
     }
