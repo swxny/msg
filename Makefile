@@ -4,27 +4,29 @@ LDFLAGS = `pkg-config --libs sqlite3 ncurses`
 
 SRCS = main.cpp chat_server.cpp chat_client.cpp database.cpp
 OBJS = $(patsubst %.cpp, build/%.o, $(SRCS))
-TARGET = msg
+TARGET = build/msg
 
 BUILD_DIR = build
 
 # Ensure build folder exists
 $(shell mkdir -p $(BUILD_DIR))
 
-all: $(TARGET) clean_objects
+# Default target: build executable, then remove object files
+all: $(TARGET)
+	$(MAKE) clean_objects
 
-# Link the executable
+# Link the executable in build/
 $(TARGET): $(OBJS)
 	$(CXX) $(OBJS) -o $(TARGET) $(LDFLAGS)
 
-# Compile source files into build folder
+# Compile source files into build/
 build/%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Remove only the object files after building
+# Remove only object files after building
 clean_objects:
 	@rm -f $(OBJS)
 
-# Optional: full clean
+# Full clean: remove object files + executable
 clean: clean_objects
 	@rm -f $(TARGET)
