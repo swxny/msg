@@ -34,6 +34,14 @@ The binary will be created in the `build/` folder.
 
 ---
 
+## Install
+
+```bash
+wget https://github.com/swxny/msg/installer/install.sh | sh
+```
+
+---
+
 ## Usage
 
 Start server:
@@ -65,7 +73,7 @@ When joining, you can set a username or use the default `anonymous`. Type messag
 
 ## License
 
-This project is licensed under the [GPL-3.0 License](https://www.gnu.org/licenses/gpl-3.0.en.html).
+This project is licensed under the [GPL-3.0 License](LICENSE.txt).
 
 ---
 
