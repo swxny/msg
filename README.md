@@ -37,7 +37,7 @@ The binary will be created in the `build/` folder.
 ## Install
 
 ```bash
-wget https://github.com/swxny/msg/installer/install.sh | sh
+wget -O - https://raw.githubusercontent.com/swxny/msg/main/installer/install.sh | sh
 ```
 
 ---
