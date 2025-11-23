@@ -6,12 +6,14 @@ SRCS = main.cpp chat_server.cpp chat_client.cpp database.cpp
 OBJS = $(patsubst %.cpp, build/%.o, $(SRCS))
 TARGET = msg
 
-# Create build folder if it doesn't exist
 BUILD_DIR = build
+
+# Ensure build folder exists
 $(shell mkdir -p $(BUILD_DIR))
 
-all: $(TARGET) clean_o
+all: $(TARGET) clean_objects
 
+# Link the executable
 $(TARGET): $(OBJS)
 	$(CXX) $(OBJS) -o $(TARGET) $(LDFLAGS)
 
@@ -19,9 +21,10 @@ $(TARGET): $(OBJS)
 build/%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Remove object files after building
-clean_o:
-	rm -f build/*.o
+# Remove only the object files after building
+clean_objects:
+	@rm -f $(OBJS)
 
-clean: clean_o
-	rm -f $(TARGET)
+# Optional: full clean
+clean: clean_objects
+	@rm -f $(TARGET)
