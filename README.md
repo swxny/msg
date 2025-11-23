@@ -59,7 +59,7 @@ When joining, you can set a username or use the default `anonymous`. Type messag
 * `chat_client.cpp` – client code
 * `database.cpp` – SQLite3 database management
 * `Makefile` – build system
-* `httplib.h` – HTTP library (header-only)
+* `lib/httplib.h` – HTTP library (header-only)
 
 ---
 
